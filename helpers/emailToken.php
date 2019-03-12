@@ -282,9 +282,9 @@ Class emailToken
         foreach ($oToken->attributes as $attribute=>$value) {
             $aReplacementFields["{".strtoupper($attribute)."}"] = $value;
         }
-        if(!empty($aMail['message'])) {
-            $aReplacementFields["{SURVEYDESCRIPTION}"] = $sMessage;
-            $aReplacementFields["{MESSAGE}"] = $sMessage;
+        if(!empty($this->dataEmail['message'])) {
+            $aReplacementFields["{SURVEYDESCRIPTION}"] = $this->dataEmail['message'];
+            $aReplacementFields["{MESSAGE}"] = $this->dataEmail['message'];
         }
         foreach($aReplaceField as $value => $replaced) {
             $aReplacementFields["{".$value."}"] = $replaced;
