@@ -260,7 +260,9 @@ Class emailToken
      */
     public function sendMail($oToken,$aDataEmail = null,$aReplaceField = array())
     {
-        $this->dataEmail = array_merge($this->dataEmail,$aDataEmail);
+        if(!empty($aDataEmail)) {
+            $this->dataEmail = array_merge($this->dataEmail,$aDataEmail);
+        }
         $sLanguage = App()->language;
         $aSurveyInfo = getSurveyInfo($this->surveyId, $sLanguage);
         $aMail = array();

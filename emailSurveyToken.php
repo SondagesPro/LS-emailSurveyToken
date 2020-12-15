@@ -35,6 +35,9 @@ class emailSurveyToken extends PluginBase {
      * @see event afterPluginLoad
      */
     public function afterPluginLoad(){
+        if (!$this->getEvent()) {
+            throw new CHttpException(403);
+        }
         // messageSource for this plugin:
         $messageSource=array(
             'class' => 'CGettextMessageSource',
